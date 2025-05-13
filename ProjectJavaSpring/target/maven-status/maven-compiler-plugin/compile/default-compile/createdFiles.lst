@@ -1,0 +1,14 @@
+com\example\ProjectJavaSpring\repository\TaskRepository.class
+com\example\ProjectJavaSpring\repository\UserRepository.class
+com\example\ProjectJavaSpring\service\NotificationService.class
+com\example\ProjectJavaSpring\service\TaskService.class
+com\example\ProjectJavaSpring\repository\NotificationRepository.class
+com\example\ProjectJavaSpring\models\ResponseObject.class
+com\example\ProjectJavaSpring\models\User.class
+com\example\ProjectJavaSpring\controller\TaskController.class
+com\example\ProjectJavaSpring\models\Task.class
+com\example\ProjectJavaSpring\controller\UserController.class
+com\example\ProjectJavaSpring\models\Notification.class
+com\example\ProjectJavaSpring\ProjectJavaSpringApplication.class
+com\example\ProjectJavaSpring\service\UserService.class
+com\example\ProjectJavaSpring\controller\NotificationController.class

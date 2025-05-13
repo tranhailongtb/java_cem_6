@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:h2:file:/data/taskdb
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
+    depends_on:
+      - db
+      - redis
+    networks:
+      - app-network
+
+  h2-console:
+    image: oscarfonts/h2
+    ports:
+      - "8081:8081"
+    volumes:
+      - h2-data:/opt/h2-data
+    networks:
+      - app-network
+
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: db
+    ports:
+      - '5432:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - app-network
+
+volumes:
+  h2-data:
+  postgres_data:
+  redis_data:
+
+networks:
+  app-network:
+    driver: bridge
